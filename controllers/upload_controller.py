@@ -19,9 +19,11 @@ def upload_dicom():
         
         description:  Handles the upload and processing of a DICOM file or a ZIP archive containing multiple DICOM files.
         This endpoint accepts either individual `.dcm` files or `.zip` archives containing multiple DICOM images.
+        
         It processes the uploaded file using internal services (`process_dicom_image` for single files or 
         `process_dicom_series_from_folder` for ZIP archives), saves the processed image, extracts relevant metadata, 
         and stores the results in the MongoDB `ct` collection.
+        
         Flask Response: A JSON response containing a success message, processed results, and the `_id` of the 
         stored document in case of success, or an error message in case of failure.
     """
