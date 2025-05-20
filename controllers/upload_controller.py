@@ -10,7 +10,21 @@ upload_bp = Blueprint('upload', __name__)
 
 @upload_bp.route('/upload', methods=['POST'])
 def upload_dicom():
-    """Carga un archivo DICOM o ZIP de serie, extrae el Pixel Data y lo procesa"""
+    """
+    Upload and process DICOM files or ZIP archives containing DICOM files.
+    ---
+    tags:
+      - Upload
+        summary: Upload DICOM file or ZIP archive
+        
+        description:  Handles the upload and processing of a DICOM file or a ZIP archive containing multiple DICOM files.
+        This endpoint accepts either individual `.dcm` files or `.zip` archives containing multiple DICOM images.
+        It processes the uploaded file using internal services (`process_dicom_image` for single files or 
+        `process_dicom_series_from_folder` for ZIP archives), saves the processed image, extracts relevant metadata, 
+        and stores the results in the MongoDB `ct` collection.
+        Flask Response: A JSON response containing a success message, processed results, and the `_id` of the 
+        stored document in case of success, or an error message in case of failure.
+    """
 
     if 'file' not in request.files:
         return jsonify({"error": "No file uploaded"}), 400
