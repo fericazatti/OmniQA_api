@@ -86,11 +86,11 @@ tags:</p>
 <li><p>Upload
 summary: Upload DICOM file or ZIP archive</p>
 <p>description:  Handles the upload and processing of a DICOM file or a ZIP archive containing multiple DICOM files.
-This endpoint accepts either individual <cite>.dcm</cite> files or <cite>.zip</cite> archives containing multiple DICOM images.
-It processes the uploaded file using internal services (<cite>process_dicom_image</cite> for single files or
+This endpoint accepts either individual <cite>.dcm</cite> files or <cite>.zip</cite> archives containing multiple DICOM images.</p>
+<p>It processes the uploaded file using internal services (<cite>process_dicom_image</cite> for single files or
 <cite>process_dicom_series_from_folder</cite> for ZIP archives), saves the processed image, extracts relevant metadata,
-and stores the results in the MongoDB <cite>ct</cite> collection.
-Flask Response: A JSON response containing a success message, processed results, and the <cite>_id</cite> of the
+and stores the results in the MongoDB <cite>ct</cite> collection.</p>
+<p>Flask Response: A JSON response containing a success message, processed results, and the <cite>_id</cite> of the
 stored document in case of success, or an error message in case of failure.</p>
 </li>
 </ul>
